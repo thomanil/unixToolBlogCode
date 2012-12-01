@@ -1,7 +1,6 @@
 # Code for my unix toolbox blogpost
 
 
-
 ## LICENSE:
 
 (The MIT License)
