@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+if ARGV.length != 2
+  puts "Usage: send-email TO_ADDRESS EMAIL_BODY"
+  exit 1
+end
+
+recipient = ARGV[0]
+text = ARGV[1]
+puts `echo #{text} | msmtp -a gmail #{recipient}`

@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+if ARGV.length != 1
+  puts "Usage: read-email EMAIL_NO"
+  exit 1
+end
+
+#depends on the 'mail' gem, install like this: gem install mail
+require 'mail'
+
+maildir = File.expand_path("~/Maildir/Gmail/INBOX")
+all_email_filepaths = Dir["#{maildir}/**/*"].select { |f| File.file?(f) }
+#all_email_filepaths = `find ~/Maildir/Gmail/INBOX -type f`.split("\n")
+mail_number = (ARGV[0].to_i)-1
+mail_path = all_email_filepaths[mail_number]
+mail = Mail.read(mail_path)
+puts mail.text_part

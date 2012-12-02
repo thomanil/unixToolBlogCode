@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+if ARGV.length != 1
+  puts "Usage: watch-unread-emails POLLING_INTERVAL_SECONDS"
+  exit 1
+end
+
+polling_interval = ARGV[0].to_i
+
+while true
+  new_mail_dir = File.expand_path("~/Maildir/Gmail/INBOX/new/*")
+  unread_count = Dir[new_mail_dir].count { |file| File.file?(file) }
+  puts `clear && offlineimap`
+  puts "Unread emails: #{unread_count}"
+  sleep polling_interval
+end
