@@ -1,3 +1,3 @@
 #!/bin/sh
 
-grep -Rh ^Subject:  ~/Maildir/Gmail/INBOX
+grep -Rh ^Subject: ~/Maildir/Gmail/INBOX

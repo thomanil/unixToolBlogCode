@@ -1,3 +1,4 @@
 #!/bin/sh
 
-watch -n10 'offlineimap && echo "Uleste mail: $(find ~/Maildir/Gmail/INBOX/new -type f | wc -l)"'
+POLLING_INTERVAL=$1
+watch -n$POLLING_INTERVAL 'offlineimap && echo "Unread emails: $(find ~/Maildir/Gmail/INBOX/new -type f | wc -l)"'

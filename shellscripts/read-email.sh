@@ -1,3 +1,4 @@
 #!/bin/sh
 
-find ~/Maildir/Gmail/INBOX -type f | sed -n 2p | xargs cat
+$MAIL_NUMBER=$1
+find ~/Maildir/Gmail/INBOX -type f | sed -n $$MAIL_NUMBER p | xargs cat
